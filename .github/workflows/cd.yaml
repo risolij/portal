@@ -1,28 +1,31 @@
-name: Continuous deployment
+name: Publish to GH Pages
+
 on:
-  workflow_run:
+  push:
     branches: [main]
-    workflows: [Continuous integration]
-    types: [completed]
+  pull_request:
+    branches: [main]
 
 jobs:
-  release:
+  publish:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions-rs/toolchain@v1
+      - uses: actions/checkout@v3
+      - name: rust-toolchain
+        uses: actions-rs/toolchain@v1.0.6
         with:
           toolchain: stable
           target: wasm32-unknown-unknown
+      - name: trunk-action
+        uses: jetli/trunk-action@v0.1.0
 
-      - uses: jetli/trunk-action@v0.1.0
-      - uses: jetli/wasm-bindgen-action@v0.1.0
+      - name: run trunk
+        run: trunk build --release
 
-      - uses: actions/checkout@v2
-
-      - run: trunk build --release
-
-      - uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+      - name: GitHub Pages action
+        uses: peaceiris/actions-gh-pages@v3.7.3
         with:
-          github_token: $
-          publish_dir: ./dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: dist
