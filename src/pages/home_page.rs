@@ -9,7 +9,7 @@ use crate::components::footer::Footer;
 #[function_component(HomePage)]
 pub fn home_page() -> Html {
     html! {
-        <main class={"home_main"}>
+        <main class={"home_page"}>
             <Nav />
             <MainContent />
             <Footer />

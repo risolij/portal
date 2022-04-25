@@ -6,7 +6,7 @@ use crate::components::nav::Nav;
 #[function_component(ProjectsPage)]
 pub fn projects_page() -> Html {
     html! {
-        <main class={classes!("projects-main")}>
+        <main class={classes!("projects_page")}>
             <Nav />
             <ProjectList />
         </main>

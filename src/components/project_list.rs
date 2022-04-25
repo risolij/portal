@@ -13,7 +13,7 @@ pub fn project_list() -> Html {
         .collect::<Html>();
 
     html! {
-        <section class={classes!("projects-content")}>
+        <section class={classes!("projects_content")}>
             {projects}
         </section>
     }
