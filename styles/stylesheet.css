@@ -78,16 +78,27 @@ a:hover {
     transition: 1s;
 }
 
-.project-card > article > ul {
+.project-card > article {
     height: 80%;
+}
+
+.project-card > article > ul {
     display: flex;
     flex-direction: column;
+}
+
+.project-card > header {
+    height: 20%;
 }
 
 .project-card header a {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100%;
+}
+.project-card > header > h1 {
+    height: 100%;
 }
 
 .project-card:hover header a {
