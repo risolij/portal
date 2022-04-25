@@ -1,5 +1,8 @@
 * portal
-Experimental yew application for showing github projects 🦾. Learning process for a react-esque rust 🦀 web framework.
+Experimental yew application for showing github projects 🦾. Learning process for a react-esque rust 🦀 web framework. Feel free to give suggestions for improvement!
+
+** Visit Portfolio Website
+[[https://risolij.github.io/portal]]
 
 ** Install
 *** Clone repo
@@ -8,10 +11,15 @@ git clone git@github.com:risolij/portal.git
 #+end_src
 
 *** Install dependencies
-- Install nix
+Once dependencies are installed the flake.nix should download the project requirements automagically upon entering project root. The only two manual installations are
+- Install nix package manager / language
 - Install direnv
 
-*** Serve Content locally
+*** Run it
+#+begin_src sh
+cd portal
+#+end_src
+
 #+begin_src sh
 trunk serve
 #+end_src
